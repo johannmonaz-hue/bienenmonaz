@@ -223,12 +223,11 @@ a {
 }
 
 .hero {
-  grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+  grid-template-columns: 1fr 1fr;
   align-items: stretch;
 }
 
 .hero-copy,
-.hero-media,
 .page-hero,
 .metric-card,
 .content-card,
@@ -237,7 +236,20 @@ a {
 .map-card,
 .cta-strip,
 .site-footer {
-  padding: clamp(22px, 2.5vw, 32px);
+  padding: clamp(24px, 2.5vw, 36px);
+}
+
+figure.hero-media {
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+figure.hero-media .media-frame {
+  flex: 1;
+  border-radius: 0;
+  min-height: 480px;
 }
 
 .eyebrow {
@@ -294,13 +306,8 @@ h2 {
 
 .lead {
   max-width: 58ch;
-  margin: 14px 0 20px;
+  margin: 16px 0 24px;
   font-size: 0.96rem;
-}
-
-h1 + .lead,
-h2 + .lead {
-  margin-top: 14px;
 }
 
 .hero-actions,
@@ -351,8 +358,8 @@ h2 + .lead {
 .hero-meta {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  margin: 20px 0 0;
+  gap: 8px;
+  margin: 24px 0 0;
 }
 
 .hero-meta div,
@@ -364,8 +371,14 @@ h2 + .lead {
   box-shadow: inset 0 0 0 1px rgba(55, 44, 25, 0.06);
 }
 
+.hero-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .hero-meta dt {
-  margin-bottom: 6px;
+  margin: 0;
   color: var(--muted);
   font-size: 0.72rem;
   font-weight: 800;
@@ -375,7 +388,7 @@ h2 + .lead {
 
 .hero-meta dd {
   margin: 0;
-  font-size: 0.98rem;
+  font-size: 0.95rem;
   font-weight: 700;
 }
 
@@ -403,7 +416,7 @@ h2 + .lead {
 }
 
 .media-frame-hero {
-  min-height: 460px;
+  min-height: 0;
 }
 
 .media-frame img,
@@ -432,9 +445,9 @@ h2 + .lead {
 .metric-card::before {
   content: "";
   display: block;
-  width: 40px;
-  height: 3px;
-  margin-bottom: 16px;
+  width: 32px;
+  height: 2px;
+  margin-bottom: 20px;
   border-radius: 999px;
   background: var(--accent);
 }
@@ -473,7 +486,7 @@ h2 + .lead {
 }
 
 .section-heading {
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 }
 
 .icon-list,
@@ -797,7 +810,10 @@ h2 + .lead {
     column-gap: 3px;
   }
 
-  .media-frame-hero,
+  figure.hero-media .media-frame {
+    min-height: 360px;
+  }
+
   .showcase-media .media-frame {
     min-height: 340px;
   }
