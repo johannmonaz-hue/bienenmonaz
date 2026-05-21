@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienenmonaz | Kontakt</title>
+  <meta
+    name="description"
+    content="Kontaktseite von Bienenmonaz mit Formular, Adresse, Telefon, E-Mail und Google Maps fuer Schmiedstrasse 13 in Erding."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="contact">
+  <div class="site-bg"></div>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Bienenmonaz Startseite">
+        <span class="brand-mark">BM</span>
+        <span class="brand-copy">
+          <strong>Bienenmonaz</strong>
+          <span>Imkerei & Honig aus Erding</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        Men&uuml;
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="index.html">Start</a>
+        <a href="galerie.html">Galerie</a>
+        <a class="is-active" href="kontakt.html">Kontakt</a>
+      </nav>
+    </header>
+
+    <main class="main-stack">
+      <section class="page-hero surface">
+        <div>
+          <p class="eyebrow">Kontakt</p>
+          <h1>Schreibt uns, ruft an oder besucht uns in Erding.</h1>
+          <p class="lead">
+            Klare Kontaktwege, saubere Anordnung und direkt darunter die Karte zum Standort.
+          </p>
+        </div>
+        <div class="hero-side-note">
+          <strong>Schmiedstrasse 13</strong>
+          <span>85435 Erding</span>
+        </div>
+      </section>
+
+      <section class="contact-grid">
+        <article class="content-card surface">
+          <div class="section-heading">
+            <p class="eyebrow">Nachricht senden</p>
+            <h2>Kontaktformular</h2>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+            <label>
+              <span>Name</span>
+              <input type="text" name="name" placeholder="Ihr Name" required>
+            </label>
+            <label>
+              <span>E-Mail</span>
+              <input type="email" name="email" placeholder="name@beispiel.de" required>
+            </label>
+            <label>
+              <span>Telefon</span>
+              <input type="text" name="phone" placeholder="Optional">
+            </label>
+            <label>
+              <span>Betreff</span>
+              <input type="text" name="subject" placeholder="Honig, Bestellung, Frage zur Imkerei" required>
+            </label>
+            <label class="field-full">
+              <span>Nachricht</span>
+              <textarea name="message" rows="6" placeholder="Wie koennen wir helfen?" required></textarea>
+            </label>
+            <div class="form-actions">
+              <button class="button button-primary" type="submit">Nachricht vorbereiten</button>
+              <p class="form-hint">Das Formular oeffnet Ihr E-Mail-Programm mit einer vorbereiteten Nachricht.</p>
+            </div>
+            <p class="form-status" id="form-status" aria-live="polite"></p>
+          </form>
+        </article>
+
+        <article class="content-card surface">
+          <div class="section-heading">
+            <p class="eyebrow">Direkter Kontakt</p>
+            <h2>Telefon, E-Mail und Adresse</h2>
+          </div>
+
+          <div class="contact-list">
+            <a class="contact-item" href="tel:08122959440">
+              <strong>Telefon</strong>
+              <span>08122 959440</span>
+            </a>
+            <a class="contact-item" href="mailto:bienenmonaz@gmail.com">
+              <strong>E-Mail</strong>
+              <span>bienenmonaz@gmail.com</span>
+            </a>
+            <div class="contact-item">
+              <strong>Adresse</strong>
+              <span>Schmiedstrasse 13<br>85435 Erding</span>
+            </div>
+          </div>
+
+          <div class="media-frame contact-image">
+            <img src="assets/images/honig-glaeser-2.jpg" alt="Frisch abgefuellte Honigglaeser von Bienenmonaz" loading="lazy">
+          </div>
+        </article>
+      </section>
+
+      <section class="map-card surface">
+        <div class="section-heading">
+          <p class="eyebrow">Standort</p>
+          <h2>Google Maps fuer Schmiedstrasse 13 in Erding.</h2>
+        </div>
+        <div class="map-frame">
+          <iframe
+            title="Google Maps Standort Bienenmonaz"
+            src="https://www.google.com/maps?q=Schmiedstra%C3%9Fe%2013%2C%2085435%20Erding&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer surface">
+      <p>Bienenmonaz | Imkerei und Honig aus Erding</p>
+      <nav>
+        <a href="index.html">Start</a>
+        <a href="galerie.html">Galerie</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
