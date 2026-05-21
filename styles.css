@@ -598,12 +598,12 @@ h2 {
 }
 
 .gallery-heading {
-  padding: 8px 0 4px;
+  padding: 12px 0 8px;
 }
 
 .gallery-heading h1 {
-  margin-top: 8px;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  margin-top: 6px;
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
   max-width: none;
 }
 
