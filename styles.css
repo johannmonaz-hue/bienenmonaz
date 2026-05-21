@@ -227,6 +227,11 @@ a {
   align-items: stretch;
 }
 
+.hero-copy {
+  display: flex;
+  flex-direction: column;
+}
+
 .hero-copy,
 .page-hero,
 .metric-card,
@@ -359,7 +364,8 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
-  margin: 24px 0 0;
+  margin-top: auto;
+  padding-top: 24px;
 }
 
 .hero-meta div,
