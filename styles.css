@@ -225,11 +225,15 @@ a {
 .hero {
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
 }
 
 .hero-copy {
   display: flex;
   flex-direction: column;
+  padding: clamp(24px, 2.5vw, 36px);
 }
 
 .hero-copy,
