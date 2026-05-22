@@ -725,6 +725,31 @@ h2 {
   border: 0;
 }
 
+.impressum-content {
+  display: grid;
+  gap: 24px;
+  line-height: 1.7;
+}
+
+.impressum-section {
+  display: grid;
+  gap: 12px;
+}
+
+.impressum-section p {
+  margin: 0;
+}
+
+.impressum-content a {
+  color: var(--text);
+  text-decoration: underline;
+  transition: opacity 0.22s ease;
+}
+
+.impressum-content a:hover {
+  opacity: 0.7;
+}
+
 .cta-strip {
   grid-template-columns: 1fr auto;
   align-items: center;
