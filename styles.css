@@ -598,6 +598,17 @@ h2 {
   align-self: start;
 }
 
+.gallery-unit {
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-unit .gallery-heading {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-color: transparent;
+}
+
 .gallery-heading {
   padding: clamp(20px, 2.5vw, 32px);
 }
