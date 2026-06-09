@@ -1,0 +1,11 @@
+# Secrets — niemals committen
+.env
+.env.local
+.env.*.local
+
+# Dependencies / Build
+node_modules/
+.vercel/
+
+# OS
+.DS_Store

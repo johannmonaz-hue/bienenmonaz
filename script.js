@@ -61,32 +61,59 @@ const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#form-status");
 
 if (contactForm && formStatus) {
-  contactForm.addEventListener("submit", (event) => {
+  const submitButton = contactForm.querySelector("button[type='submit']");
+
+  const setStatus = (message, state) => {
+    formStatus.textContent = message;
+    formStatus.classList.remove("is-success", "is-error");
+    if (state) formStatus.classList.add(state);
+  };
+
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const formData = new FormData(contactForm);
-    const name = String(formData.get("name") || "").trim();
-    const email = String(formData.get("email") || "").trim();
-    const phone = String(formData.get("phone") || "").trim();
-    const subject = String(formData.get("subject") || "").trim();
-    const message = String(formData.get("message") || "").trim();
+    const payload = {
+      name: String(formData.get("name") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      phone: String(formData.get("phone") || "").trim(),
+      subject: String(formData.get("subject") || "").trim(),
+      message: String(formData.get("message") || "").trim(),
+      _honey: String(formData.get("_honey") || "").trim(),
+    };
 
-    if (!name || !email || !subject || !message) {
-      formStatus.textContent = "Bitte fuellen Sie alle Pflichtfelder aus.";
+    if (!payload.name || !payload.email || !payload.subject || !payload.message) {
+      setStatus("Bitte füllen Sie alle Pflichtfelder aus.", "is-error");
       return;
     }
 
-    const bodyLines = [
-      `Name: ${name}`,
-      `E-Mail: ${email}`,
-      `Telefon: ${phone || "-"}`,
-      "",
-      "Nachricht:",
-      message
-    ];
+    setStatus("Wird gesendet …");
+    if (submitButton) submitButton.disabled = true;
 
-    const mailto = `mailto:bienenmonaz@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-    window.location.href = mailto;
-    formStatus.textContent = "Ihr E-Mail-Programm sollte sich jetzt mit der vorbereiteten Nachricht oeffnen.";
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await response.json().catch(() => ({}));
+
+      if (response.ok && data.ok) {
+        contactForm.reset();
+        setStatus("Danke! Ihre Nachricht ist unterwegs. Wir melden uns bald.", "is-success");
+      } else {
+        setStatus(
+          data.error || "Senden fehlgeschlagen. Bitte später erneut versuchen oder direkt per E-Mail.",
+          "is-error"
+        );
+      }
+    } catch {
+      setStatus(
+        "Verbindung fehlgeschlagen. Bitte später erneut versuchen oder direkt an bienenmonaz@gmail.com schreiben.",
+        "is-error"
+      );
+    } finally {
+      if (submitButton) submitButton.disabled = false;
+    }
   });
 }
